@@ -1,0 +1,1 @@
+{"_id":"index", "content":"#Welcome!\nThe content of this document is Markdown stored as json in CouchDB. The markdown is then rendered in the browser using [pagedown](http://code.google.com/p/pagedown/). The table of contents on the left is generated from the h1, h2 and h3 elements in the resulting HTML.\n## What now?\nRead some [lorem impsum](?doc=ipsum)"}
