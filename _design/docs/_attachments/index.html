@@ -1,13 +1,41 @@
 <html>
   <head>
     <title>Docs</title>
+
     <style>
+      html, body {
+        height: 100%;
+      }
       body{
         padding: 0px;
         margin: 0px;
         font-family:Baskerville, Georgia,Utopia,Palatino,'Palatino Linotype',serif;
       }
-      #nav,#loader{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+      footer {
+        padding: 18px;
+        background: #333;
+        border-top: 1px solid #eee;
+        color: #eee;
+        margin-left:251px;
+        margin-bottom: 0px;
+        text-align: center;
+        font-weight: 100;
+      }
+      footer a{
+        color: #ddd;
+        font-weight: 400;
+        height: 63px;
+      }
+      .wrapper {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -55px;
+      }
+      .push {
+        height: 55px;
+      }
+      #nav,footer{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
       a{color:#369}
       #header{
         border-bottom:1px solid #ccc;
@@ -82,7 +110,11 @@
         background:#ddd;background:rgba(0,0,0,0.05)
       }
 
-      #content{margin:0 0 0 290px;padding:0px 0 20px;min-height:100px;max-width:688px;}
+      #content{
+        margin: 0px 290px;
+        padding: 25px 0px 120px;
+        max-width:688px;
+      }
       #content h1,#content h2,#content h3,#content h4,#content h5,#content h6{
         font-weight:normal;
         color:#333;
@@ -135,7 +167,11 @@
   </head>
   <body>
     <div id="nav"></div>
-    <div id="content"></div>
+    <div class="wrapper">
+      <div id="content"></div>
+      <div class="push"><!--//--></div>
+    </div>
+    <footer>Fork Docs on <a href="https://github.com/drsm79/docs">github</a></footer>
   </body>
 </html>
 
