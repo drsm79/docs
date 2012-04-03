@@ -36,8 +36,12 @@ def build(doc):
       print "Could not parse metadata, invalid json?: %s" % m
   content = "".join(filter(lambda x: not x.startswith('%%%'), md))
   jdoc = {'_id': doc.strip('.md'), 'content': content}
+<<<<<<< HEAD
   if meta:
     jdoc['meta'] = meta
+=======
+  jdoc.update(meta)
+>>>>>>> 419df19... Allow for metadata in markdown documents
   f.close()
   return jdoc
 
