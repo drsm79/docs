@@ -22,10 +22,22 @@ class HeadRequest(urllib2.Request):
 
 def build(doc):
   """
-  Build up the dictionaries that will be made into json docs.
+  Build up the dictionaries that will be made into json docs from markdown
+  files. Lines beginning with %%% are assumed to be metadata containing json
+  which will be parsed and included in the dictionary.
   """
   f = open(doc)
-  jdoc = {'_id': doc.strip('.md'), 'content': f.read()}
+  md = f.readlines()
+  meta = {}
+  for m in filter(lambda x: x.startswith('%%%'), md):
+    try:
+      meta.update(json.loads(m.strip('% ')))
+    except:
+      print "Could not parse metadata, invalid json?: %s" % m
+  content = "".join(filter(lambda x: not x.startswith('%%%'), md))
+  jdoc = {'_id': doc.strip('.md'), 'content': content}
+  if meta:
+    jdoc['meta'] = meta
   f.close()
   return jdoc
 
