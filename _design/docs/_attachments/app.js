@@ -83,3 +83,56 @@ var Documentation = Backbone.View.extend({
     build_toc("nav");
   }
 });
+
+var Chapter = Backbone.Model.extend({
+  initialize: function(doc) {
+    if(doc){
+      this.set({title: doc.value, meta:doc.key});
+    }
+  }
+});
+
+var ChapterCollection = Backbone.Collection.extend({
+  model: Chapter,
+  url: "chapters",
+  doreduce: false,
+  error : function(jqXHR, textStatus, errorThrown){
+    Backbone.couch.log(["jqXHR", jqXHR]);
+    Backbone.couch.log(["textStatus", textStatus]);
+    Backbone.couch.log(["errorThrown", errorThrown]);
+    return null
+  },
+  success : function(result){
+    var models = [];
+    _.each( result.rows, function( row ) {
+      if(row){
+        models.push( row );
+      }
+    });
+    if ( models.length == 0 ) { models = null }
+    return models;
+  }
+});
+
+var ChapterDropdown = Backbone.View.extend({
+  initialize: function(settings) {
+    _.bindAll(this);
+    _.extend(this, Backbone.Events);
+
+    this.collection.bind('change', this.render);
+    this.collection.bind('add', this.render);
+    this.collection.bind('remove', this.render);
+    this.collection.bind('reset', this.render);
+    this.collection.fetch();
+  },
+  render: function() {
+    this.collection.each(
+      function(d){
+        if (d){
+          var option = "<option value='"+ d.id +"'>";
+          option += d.get('title') + "</option>"
+          $(this.el).append(option);
+      }}, this
+    );
+  }
+});

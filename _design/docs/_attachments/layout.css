@@ -1,0 +1,70 @@
+      html, body {
+        height: 100%;
+      }
+      body{
+        padding: 0px;
+        margin: 0px;
+      }
+      footer {
+        padding: 18px;
+        margin-left:251px;
+        margin-bottom: 0px;
+      }
+      .wrapper {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -25px;
+      }
+      .push, footer {
+        height: 25px;
+      }
+      #header{
+        border-bottom:1px solid #ccc;
+      }
+      #header #logo{
+        padding:10px 15px;
+      }
+      #nav{
+        position:fixed;
+        top:0;
+        left:0;
+        width:250px;
+        height:100%;
+        overflow-x:hidden;
+        overflow-y:auto;
+      }
+      #nav a{
+        display:block;
+      }
+      #nav #sections{
+        margin-bottom:5px;
+        margin-top:0px;
+        padding: 0px;
+      }
+      #nav #sections > li{
+        margin: 0px;
+        border-bottom:1px solid rgba(0,0,0,0.05);
+        border-top:1px solid rgba(255,255,255,0.50);
+      }
+      #nav #sections > li > a{
+        padding:10px 15px;
+      }
+      #nav #sections ul{
+        margin-left: -40px;
+      }
+      #nav #sections ul li a{
+        padding:10px 25px;
+      }
+      #content{
+        margin: 0px 290px;
+        padding: 25px 0px 120px;
+        max-width:688px;
+      }
+      #content h1{margin-bottom:.765em}
+      #content h2{margin:.855em 0}
+      #content h3{margin:.956em 0}
+      #content h4{margin:1.161em 0}
+      #content h5,#content h6{margin:1.238em 0}
+      #content h1#page_title{padding: 20px;}
+

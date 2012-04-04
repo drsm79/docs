@@ -2,145 +2,9 @@
   <head>
     <title>Docs</title>
 
-    <style>
-      html, body {
-        height: 100%;
-      }
-      body{
-        padding: 0px;
-        margin: 0px;
-        font-family:Baskerville, Georgia,Utopia,Palatino,'Palatino Linotype',serif;
-      }
-      footer {
-        padding: 18px;
-        background: #333;
-        border-top: 1px solid #eee;
-        color: #eee;
-        margin-left:251px;
-        margin-bottom: 0px;
-        text-align: center;
-        font-weight: 100;
-      }
-      footer a{
-        color: #ddd;
-        font-weight: 400;
-        height: 63px;
-      }
-      .wrapper {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        margin: 0 auto -55px;
-      }
-      .push {
-        height: 55px;
-      }
-      #nav,footer{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
-      a{color:#369}
-      #header{
-        border-bottom:1px solid #ccc;
-      }
-      #header #logo{
-        color:#333;
-        font-size:18px;
-        font-weight:bold;
-        font-size: 24px;
-        padding:10px 15px;
-        line-height:1.2em;
-        text-decoration:none
-      }
-      #nav{
-        position:fixed;
-        top:0;
-        left:0;
-        width:250px;
-        height:100%;
-        background:#f9f9f9;
-        background:rgba(0,0,0,0.10);
-        border-right:1px solid rgba(0,0,0,0.20);
-        -webkit-box-shadow:rgba(0,0,0,0.10) -1px 0 3px 0 inset;
-        -moz-box-shadow:rgba(0,0,0,0.10) -1px 0 3px 0 inset;
-        box-shadow:rgba(0,0,0,0.10) -1px 0 3px 0 inset;
-        text-shadow:rgba(255,255,255,0.70) 0 1px 0;
-        overflow-x:hidden;
-        overflow-y:auto;
-      }
-      #nav a{
-        display:block;
-        font-weight:bold;
-        text-decoration:none
-      }
-      #nav #sections{
-        margin-bottom:5px;
-        margin-top:0px;
-        border-bottom:1px solid #ccc;
-        padding: 0px;
-        background:#f1f1f1;
-        -webkit-box-shadow:rgba(0,0,0,0.15) 0 0 5px;
-        -moz-box-shadow:rgba(0,0,0,0.15) 0 0 5px;
-        box-shadow:rgba(0,0,0,0.15) 0 0 5px;
-      }
-      #nav #sections > li{
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        margin: 0px;
-        border-bottom:1px solid rgba(0,0,0,0.05);
-        border-top:1px solid rgba(255,255,255,0.50);
-      }
-      #nav #sections > li > a{
-        padding:10px 15px;
-        color:#555;
-        font-size:14px;
-      }
-      #nav #sections > li > a:hover{
-        background:#ddd;
-        background:rgba(0,0,0,0.05);
-      }
-      #nav #sections > li:last-child{
-        border-bottom:1px solid rgba(255,255,255,0.50);
-      }
-      #nav #sections ul{
-        margin-left: -40px;
-      }
-      #nav #sections ul li a{
-        padding:10px 25px;
-        font-size:13px;
-      }
-      #nav #sections ul li a:hover{
-        background:#ddd;background:rgba(0,0,0,0.05)
-      }
+    <link rel="stylesheet" href="master.css" type="text/css" />
+    <link href='favicon.png' rel='icon' type='image/png'>
 
-      #content{
-        margin: 0px 290px;
-        padding: 25px 0px 120px;
-        max-width:688px;
-      }
-      #content h1,#content h2,#content h3,#content h4,#content h5,#content h6{
-        font-weight:normal;
-        color:#333;
-        line-height:1.2em
-      }
-      #content h1{font-size:2.125em;margin-bottom:.765em}
-      #content h2{font-size:1.7em;margin:.855em 0}
-      #content h3{font-size:1.3em;margin:.956em 0}
-      #content h4{font-size:1.1em;margin:1.161em 0}
-      #content h5,#content h6{font-size:1em;font-weight:bold;margin:1.238em 0}
-      #content h1#page_title{
-        border:1px solid #ccc;
-        border-top:1px;
-        text-align: center;
-        padding: 20px;
-        font-size: 5em;
-        line-height: 1em;
-        -moz-border-bottom-left-radius: 15px;
-        -moz-border-bottom-right-radius: 15px;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        -moz-box-shadow: 5px 1px 10px #888;
-        -webkit-box-shadow: 5px 1px 10px #888;
-        box-shadow: 5px 1px 10px #888;
-      }
-    </style>
     <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="underscore-min.js"></script>
     <script type="text/javascript" src="backbone-min.js"></script>
@@ -162,7 +26,14 @@
 
         var doc_coll = new DocCollection([], {key: queryString.doc || "index"});
         var doc = new Documentation({collection: doc_coll, el:'#content'});
-      })
+
+        var chapter_coll = new ChapterCollection();
+        var chapters = new ChapterDropdown({collection: chapter_coll, el:'#dropdown'});
+
+        $('#dropdown').change(function(e) {
+          window.location = "?doc=" + $("select option:selected")[0].value;
+        });
+    })
     </script>
   </head>
   <body>
@@ -171,7 +42,18 @@
       <div id="content"></div>
       <div class="push"><!--//--></div>
     </div>
-    <footer>Fork Docs on <a href="https://github.com/drsm79/docs">github</a></footer>
+    <footer>
+        <div style="float:right;padding:0px;margin:0px;">
+            <form>
+                <select id="dropdown">
+                    <option>Index</option>
+                </select>
+            </form>
+        </div>
+        <div>
+        Fork Docs on <a href="https://github.com/drsm79/docs">github</a>
+        </div>
+    </footer>
   </body>
 </html>
 

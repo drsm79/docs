@@ -1,0 +1,87 @@
+      body{
+        font-family:Baskerville, Georgia,Utopia,Palatino,'Palatino Linotype',serif;
+      }
+      footer {
+        background: #333;
+        border-top: 1px solid #eee;
+        color: #eee;
+        text-align: center;
+        font-weight: 100;
+      }
+      footer a{
+        color: #ddd;
+        font-weight: 400;
+      }
+      #nav,footer{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+      a{color:#369}
+      #header #logo{
+        color:#333;
+        font-size:18px;
+        font-weight:bold;
+        font-size: 24px;
+        line-height:1.2em;
+        text-decoration:none
+      }
+      #nav{
+        background:#f9f9f9;
+        background:rgba(0,0,0,0.10);
+        border-right:1px solid rgba(0,0,0,0.20);
+        -webkit-box-shadow:rgba(0,0,0,0.10) -1px 0 3px 0 inset;
+        -moz-box-shadow:rgba(0,0,0,0.10) -1px 0 3px 0 inset;
+        box-shadow:rgba(0,0,0,0.10) -1px 0 3px 0 inset;
+        text-shadow:rgba(255,255,255,0.70) 0 1px 0;
+      }
+      #nav a{
+        font-weight:bold;
+        text-decoration:none
+      }
+      #nav #sections{
+        border-bottom:1px solid #ccc;
+        background:#f1f1f1;
+        -webkit-box-shadow:rgba(0,0,0,0.15) 0 0 5px;
+        -moz-box-shadow:rgba(0,0,0,0.15) 0 0 5px;
+        box-shadow:rgba(0,0,0,0.15) 0 0 5px;
+      }
+      #nav #sections > li{
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 14px;
+      }
+      #nav #sections > li > a{
+        color:#555;
+        font-size:14px;
+      }
+      #nav #sections > li > a:hover{
+        background:#ddd;
+        background:rgba(0,0,0,0.05);
+      }
+      #nav #sections > li:last-child{
+        border-bottom:1px solid rgba(255,255,255,0.50);
+      }
+      #nav #sections ul li a{
+        font-size:13px;
+      }
+      #content h1,#content h2,#content h3,#content h4,#content h5,#content h6{
+        font-weight:normal;
+        color:#333;
+        line-height:1.2em
+      }
+      #content h1{font-size:2.125em;}
+      #content h2{font-size:1.7em;}
+      #content h3{font-size:1.3em;}
+      #content h4{font-size:1.1em;}
+      #content h5,#content h6{font-size:1em;font-weight:bold;}
+      #content h1#page_title{
+        border:1px solid #ccc;
+        border-top:1px;
+        text-align: center;
+        font-size: 5em;
+        line-height: 1em;
+        -moz-border-bottom-left-radius: 15px;
+        -moz-border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        -moz-box-shadow: 5px 1px 10px #888;
+        -webkit-box-shadow: 5px 1px 10px #888;
+        box-shadow: 5px 1px 10px #888;
+      }
+
